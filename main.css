@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+    background-color: #eed9ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#game-container {
+    background-color: #0a1345;
+    border: 2px solid #fb2d7d;
+    height: 500px;
+    width: 500px;
+    cursor: none;
+}
+
+#spotlight {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-color: #fff45eb7;
+    border-radius: 100px;
+    transition: 0.1s;
+    transform: translate(-50%, -50%);
+}
+
+#npc {
+    height: 20px;
+    width: 20px;
+    background-color: #8187ff;
+}
