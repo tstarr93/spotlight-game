@@ -4,6 +4,25 @@
     box-sizing: border-box;
 }
 
+#referee {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.round {
+    margin: 40px;
+}
+
+
+button {
+    margin-right: 10px;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    border: none;
+}
+
 main {
     height: 100vh;
     background-color: #eed9ff;
@@ -29,10 +48,17 @@ main {
     border-radius: 100px;
     transition: 0.1s;
     transform: translate(-50%, -50%);
+    cursor: none;
 }
 
-#npc {
-    height: 20px;
-    width: 20px;
+.npc {
+    height: 60px;
+    width: 60px;
     background-color: #8187ff;
+    /* display: none; */
+}
+
+.npc:hover {
+    /* display: block; */
+    background-color: red;
 }
