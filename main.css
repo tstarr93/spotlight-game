@@ -6,20 +6,19 @@
 
 #referee {
     margin: 20px;
+    margin-right: 80px;
     display: flex;
     flex-direction: column;
 }
 
-.round {
-    margin: 40px;
+#score {
+    margin-bottom: 10px;
 }
 
 
 button {
-    margin-right: 10px;
-    height: 200px;
-    width: 200px;
-    border-radius: 100px;
+    height: 50px;
+    width: 70px;
     border: none;
 }
 
@@ -37,7 +36,8 @@ main {
     border: 2px solid #fb2d7d;
     height: 500px;
     width: 500px;
-    cursor: none;
+    /*cursor: none; */
+    position: relative;
 }
 
 #spotlight {
@@ -49,16 +49,18 @@ main {
     transition: 0.1s;
     transform: translate(-50%, -50%);
     cursor: none;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
 }
 
-.npc {
-    height: 60px;
-    width: 60px;
-    background-color: #8187ff;
-    /* display: none; */
-}
-
-.npc:hover {
-    /* display: block; */
-    background-color: red;
+#npc {
+    height: 80px;
+    width: 80px;
+    border-radius:  50px;
+    background-color: #0a1345;
+    position: absolute;
+    left: 0;
+    top: 0;
 }

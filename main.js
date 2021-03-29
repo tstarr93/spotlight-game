@@ -1,60 +1,50 @@
-const spotlight = document.getElementById("spotlight");
-const gameContainer = document.getElementById("game-container");
+const spotlight = document.querySelector("#spotlight");
+const gameContainer = document.querySelector("#game-container");
+const npc = document.querySelector("#npc");
+const score = document.querySelector("#counter");
 
-// connect mouse movements to #spotlight div
+// Create score
+let gameScore = 0;
+score.innerHTML = gameScore;
+
+
+
+// connect mouse movements to #spotlight div and keep within #game-container
 gameContainer.addEventListener("mousemove", (event) => { 
-    const x = event.clientX;
-    const y = event.clientY;
-    spotlight.style.left = x + "px";
-    spotlight.style.top = y + "px";
+    const spotlightX = event.clientX;
+    const spotlightY = event.clientY;
+    spotlight.style.left = spotlightX + "px";
+    spotlight.style.top = spotlightY + "px";
 });
 
-// hide square when outside spotlight
+// MAKING THE NPC MOVE
+const button = document.getElementById("button");
 
+button.addEventListener("click", (event) => {
+    const animate = () => {
+        const left = Math.floor(Math.random() * 95);
+        const top = Math.floor(Math.random() * 95);
+        npc.style.left = `${left}%`;
+        npc.style.top = `${top}%`;
+    };
 
+    setInterval(animate,5000);
 
+});
 
+// ON MOUSEOVER, NPC WILL APPEAR. Add one point to score
+npc.addEventListener("mouseover", (event) => {
+    npc.style.backgroundColor = "#fb2d7d";
 
+    score.innerHTML = gameScore++;
 
-
-
-
-
-// use getBoundingClientRect to determine the space within #game-container
-
-// const gameContainer = document.getElementById("game-container");
-
-// const gameContainerRect = gameContainer.getBoundingClientRect();
-// let x = gameContainerRect.left;
-// let y = gameContainerRect.top;
-// let w = gameContainerRect.right;
-// let h = gameContainerRect.bottom;
-
-
-// using this data about its space, create a function that tells #spotlight div to stop following the mouse once the mouse leaves #game-container
-
-// if #spotlight is outside #game-container (stop mousemove event)
-// OR: if #spotlight is inside gameContainerRect, then (run mousemove eventListener)
-
-// DETECTING WHETHER MOUSE IS INSIDE GAME CONTAINER OR NOT
-// gameContainer.addEventListener("mouseenter", function(event) {
-//     isInContainer = true;
-// });
-// gameContainer.addEventListener("mouseout", function(event) {
-//     isInContainer = false;
-// });
-
-// if (isInContainer === true) {
-//     document.addEventListener("mousemove", function(event) { 
-//         let x = event.clientX;
-//         let y = event.clientY;
-//         spotlight.style.left = x + "px";
-//         spotlight.style.top = y + "px";
-//     }) 
-// } else {
-//     document.addEventListener("mousemove", function(event) { 
-//         let x = event.clientX;
-//         let y = event.clientY;
-//         spotlight.style.left != x + "px";
-//         spotlight.style.top != y + "px";
+//     const addScore = (gameScore) => {
+//     score.value = 0;
+//     score.value = gameScore++;
 // }
+
+});
+// ON MOUSELEAVE IT WILL DISAPPEAR
+npc.addEventListener("mouseleave", (event) => {
+    npc.style.backgroundColor = "#0a1345";
+})
